@@ -1,1 +1,7 @@
 https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/tutorial/
+
+Always define a array in  python like below
+
+visited=[[False]*m for _ in range(n)]  --->Correct
+visited=[[False]*m]*n------------------->Absolutely Wrong.
+
