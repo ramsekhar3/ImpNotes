@@ -10,3 +10,14 @@ to print a elemts in a list with space seperated use below in python 3:
 print (*l,sep=' ')
 
 or print (' '.join(map(str,l))
+
+ou are right that the two algorithms of Dijkstra (shortest paths from a single start node) and Prim (minimal weight spanning tree starting from a given node) have a very similar structure. They are both greedy (take the best edge from the present point of view) and build a tree spanning the graph.
+
+The value they minimize however is different. Dijkstra selects as next edge the one that leads out from the tree to a node not yet chosen closest to the starting node. (Then with this choice, distances are recalculated.) Prim choses as edge the shortest one leading out of the tree constructed so far. So, both algorithms chose a "minimal edge". The main difference is the value chosen to be minimal. For Dijkstra it is the length of the complete path from start node to the candidate node, for Prim it is just the weight of that single edge.
+
+To see the difference you should try to construct a few examples to see what happens, That is really instructive. The simplest example that shows different behaviour is a triangle x,y,z
+with edges {x,y} and {x,z} of length 2, while {y,z} has length 1. Starting in x Dijkstra will choose {x,y} and {x,z} (giving two paths of length 2) while Prim chooses {x,y} and {y,z}
+
+(giving spanning tree of weight 3).
+
+As for Kruskal, that is slightly different. It solves the minimal spanning tree, but during execution it chooses edge that may not form a tree, they just avoid cycles. So the partial solutions may be disconnected. In the end you get a tree. 
