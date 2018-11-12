@@ -5,3 +5,8 @@ Always define a array in  python like below
 visited=[[False]*m for _ in range(n)]  --->Correct
 visited=[[False]*m]*n------------------->Absolutely Wrong.
 
+to print a elemts in a list with space seperated use below in python 3:
+*l will unpack the list.
+print (*l,sep=' ')
+
+or print (' '.join(map(str,l))
